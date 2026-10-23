@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CV-oppgaver</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;800&display=swap">
+<style>
+:root{--bg:#f3f6f8;--card:#fff;--ink:#14232b;--mute:#5d6f78;--line:#d5e0e6;--soft:#e4edf1;--acc:#0e7c86;--accink:#fff;--ok:#18794e;--okbg:#dff4e9;--bad:#b3261e;--badbg:#fbe3e1;--sel:#fff1c9;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a20;--card:#17262e;--ink:#e8f0f3;--mute:#9bb0ba;--line:#2b3f49;--soft:#1f323b;--acc:#4cc3cd;--accink:#06262a;--ok:#6fd7a0;--okbg:#17372a;--bad:#ff9a92;--badbg:#401f1d;--sel:#4a3d12}}
+:root[data-theme="dark"]{--bg:#0f1a20;--card:#17262e;--ink:#e8f0f3;--mute:#9bb0ba;--line:#2b3f49;--soft:#1f323b;--acc:#4cc3cd;--accink:#06262a;--ok:#6fd7a0;--okbg:#17372a;--bad:#ff9a92;--badbg:#401f1d;--sel:#4a3d12}
+html,body{height:auto;margin:0}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.5 Figtree,system-ui,sans-serif;padding:20px 14px 40px}
+*,*:before,*:after{box-sizing:inherit}
+main{max-width:720px;margin:0 auto}
+header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
+header h1{font-size:22px;margin:0;font-weight:800}
+header span{color:var(--mute);font-size:15px}
+.bar{height:6px;background:var(--soft);border-radius:9px;overflow:hidden;margin-bottom:14px}
+.bar i{display:block;height:100%;background:var(--acc);transition:width .4s}
+.dots{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+.dots button{width:34px;height:34px;border-radius:50%;border:2px solid var(--line);background:var(--card);color:var(--ink);font:600 14px Figtree,sans-serif;cursor:pointer}
+.dots button.cur{border-color:var(--acc);background:var(--acc);color:var(--accink)}
+.dots button.done{border-color:var(--ok);color:var(--ok)}
+.dots button.done.cur{background:var(--ok);color:var(--card)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px 22px;box-shadow:0 8px 28px rgba(14,60,70,.08)}
+.card h2{font-size:28px;line-height:1.15;margin:0 0 4px;font-weight:800;letter-spacing:-.01em}
+.q{color:var(--mute);margin:0 0 20px;font-size:18px}
+button{font-family:inherit}
+.opt,.cell,.chip,.zone,.tfb,.go{font:600 16px/1.35 Figtree,sans-serif;color:var(--ink)}
+.opt{display:block;width:100%;text-align:left;padding:14px 16px;margin-bottom:10px;border:2px solid var(--line);border-radius:14px;background:var(--card);cursor:pointer;transition:.15s}
+.opt:hover{border-color:var(--acc)}
+.opt.ok,.cell.ok,.chip.ok,.tfb.ok{background:var(--okbg);border-color:var(--ok);color:var(--ok)}
+.opt.bad,.cell.bad,.chip.bad,.tfb.bad{background:var(--badbg);border-color:var(--bad);color:var(--bad)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
+.cell{padding:14px;border:2px solid var(--line);border-radius:14px;background:var(--card);cursor:pointer;text-align:left;min-height:64px}
+.cell.sel{background:var(--sel);border-color:#d9a400}
+.cell.L{font-weight:800}
+.cell:disabled{cursor:default}
+.cloze{line-height:2.6;font-size:18px}
+select{font:600 16px Figtree,sans-serif;color:var(--ink);background:var(--soft);border:2px solid var(--line);border-radius:10px;padding:6px 8px;margin:0 2px;max-width:100%}
+select.ok{border-color:var(--ok);background:var(--okbg)}
+select.bad{border-color:var(--bad);background:var(--badbg)}
+.tf{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.tf:last-child{border:0}
+.tf div{flex:1}
+.tf .b{display:flex;gap:8px}
+.tfb{padding:8px 14px;border:2px solid var(--line);border-radius:10px;background:var(--card);cursor:pointer;min-width:72px}
+.tfb:hover{border-color:var(--acc)}
+.pool{display:flex;flex-wrap:wrap;gap:8px;padding:12px;background:var(--soft);border-radius:14px;min-height:56px;margin-bottom:16px}
+.chip{padding:9px 13px;border:2px solid var(--line);border-radius:999px;background:var(--card);cursor:pointer}
+.chip.sel{background:var(--sel);border-color:#d9a400}
+.zone{display:block;width:100%;text-align:left;padding:12px;margin-bottom:12px;border:2px dashed var(--line);border-radius:14px;background:transparent;cursor:pointer;min-height:84px}
+.zone b{display:block;margin-bottom:8px}
+.zone .in{display:flex;flex-wrap:wrap;gap:8px}
+.zone.hot{border-color:#d9a400;background:var(--sel)}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:22px;flex-wrap:wrap}
+.go{padding:12px 22px;border-radius:12px;border:2px solid var(--acc);background:var(--acc);color:var(--accink);cursor:pointer}
+.go.alt{background:transparent;color:var(--acc)}
+.go:disabled{opacity:.4;cursor:default}
+.msg{font-weight:600;min-height:24px}
+.msg.ok{color:var(--ok)}.msg.bad{color:var(--bad)}
+.score{font-size:64px;font-weight:800;margin:6px 0}
+button:focus-visible,select:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.shake{animation:sh .3s}
+@keyframes sh{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+@media (prefers-reduced-motion:reduce){.shake{animation:none}.bar i{transition:none}}
+@media (max-width:520px){.grid{grid-template-columns:1fr}.card{padding:20px 16px}.card h2{font-size:24px}.tf{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+<main>
+<header><h1>CV-oppgaver</h1><span id="sc"></span></header>
+<div class="bar"><i id="pb"></i></div>
+<nav class="dots" id="dots" aria-label="Oppgaver"></nav>
+<section class="card" id="stage"></section>
+</main>
+<script>
+var E=[
+{t:'match',h:'Sett sammen',q:'Hva hører sammen?',p:[['nøkkelkvalifikasjon','kort og viktig informasjon om deg'],['utdanning','skoler du har gått og studier du har fullført'],['arbeidserfaring','du har jobbet tidligere']]},
+{t:'mc',h:'Klikk på riktig svar',q:'Hva er førstehjelp?',o:['en av de personene som kan hjelpe deg å få jobb','en slags arbeidserfaring','en måte å prøve å redde livet til mennesker på'],a:2},
+{t:'mc',h:'Klikk på riktig svar',q:'Hva betyr «referanse»?',o:['en venn som kan fortelle hvordan du er','en som kan fortelle noe om deg som arbeidstaker','en person i familien din som kan fortelle hvordan du er'],a:1},
+{t:'cloze',h:'Les og klikk på riktig ord',q:'Velg ordet som passer.',x:['Jeg har bred ',['erfaring','ferie','sykdom'],' som helsefagarbeider og sykepleier, og jeg er veldig ',['engasjert','omsorg','pleie'],' i jobben min. Jeg kan mye om helse og ',['sykdom','sko','sol'],', og jeg liker å jobbe med mennesker. Det er viktig for meg å gi god omsorg og riktig ',['behandling','hilsen','billett'],' til hver pasient.']},
+{t:'mc',h:'Klikk på riktig svar',q:'Hva betyr det at «referanser oppgis på forespørsel»?',o:['Du har en referanseperson som er en god kamerat eller venninne.','Du kan gi navnet og telefonnummeret til en referanseperson hvis arbeidsgiveren spør.','Du har ikke en referanseperson, men du skriver at du har det.'],a:1},
+{t:'match',h:'Sett sammen',q:'Hva betyr uttrykket?',p:[['å jobbe hardt','å gjøre en stor innsats'],['å utdanne seg videre','å fortsette på skole eller studier'],['å være motivert for noe','å ha lyst til å gjøre noe']]},
+{t:'cloze',h:'Les og klikk på riktig ord',q:'Velg ordet som passer.',x:['Når du ',['søker','sover','bor'],' på en jobb, må du sende ',['søknad','handleliste','bilde'],' og CV til ',['arbeidsgiveren','naboen','vennen din'],'.']},
+{t:'tf',h:'Klikk på riktig svar',q:'Er påstanden sann eller usann?',r:[['CV-en skal alltid være på papir.',0],['CV-en skal være kort.',1],['CV-en skal oppdateres med jevne mellomrom.',1],['Det du gjorde sist, skal stå nederst.',0],['Det du gjorde sist, skal stå øverst.',1],['CV-en skal inneholde personlig informasjon om deg.',1],['CV-en skal fortelle om arbeidserfaring og utdanning.',1],['Det finnes bare én riktig måte å sette opp en CV på.',0]]},
+{t:'sort',h:'Trekk ordene på riktig plass',q:'Velg en tekst, og trykk så på riktig overskrift i CV-en.',z:['Utdanning','Arbeidserfaring'],c:[['morsmålslærer i arabisk',1],['rombetjent på ChooseUsHotels',1],['grunnskole ved Borgen skole',0],['frisørutdanning ved Borgestad videregående skole',0],['bachelor i IT ved Universitetet i Sofia',0],['laboratorieassistent ved Lab4u',1]]},
+{t:'mc',h:'Klikk på riktig svar',q:'Hva betyr det at informasjonen i CV-en er «aktuell»?',o:['Informasjonen er viktig for deg.','Informasjonen er viktig for stillingen.','Informasjonen er lett å lese.'],a:1}
+];
+var cur=0,S=E.map(function(){return{}}),R=E.map(function(){return false});
+function sh(n){var a=[];for(var i=0;i<n;i++)a.push(i);for(i=n-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+function $(i){return document.getElementById(i)}
+function done(i){R[i]=true;top_()}
+function top_(){var n=R.filter(Boolean).length;$('sc').textContent=n+' av '+E.length+' riktige';$('pb').style.width=n*10+'%';
+$('dots').innerHTML=E.map(function(e,i){return '<button class="'+(i==cur?'cur ':'')+(R[i]?'done':'')+'" onclick="go('+i+')" aria-label="Oppgave '+(i+1)+'">'+(i+1)+'</button>'}).join('')}
+function go(n){cur=n;render()}
+function foot(i,extra){var last=i==E.length-1;return '<div class="foot"><div class="msg '+(S[i].mc||'')+'" id="msg">'+(S[i].m||'')+'</div><div>'+extra+(i>0?'<button class="go alt" onclick="go('+(i-1)+')">Tilbake</button> ':'')+'<button class="go" onclick="go('+(i+1)+')">'+(last?'Se resultat':'Neste')+'</button></div></div>'}
+function say(i,t,c){S[i].m=t;S[i].mc=c;var m=$('msg');if(m){m.textContent=t;m.className='msg '+c}}
+function render(){top_();var e=E[cur],s=S[cur],h='<h2>'+e.h+'</h2><p class="q">'+e.q+'</p>';
+if(cur>=E.length){return}
+if(e.t=='match'){if(!s.sh){s.sh=sh(e.p.length);s.d={}}
+h+='<div class="grid"><div>'+e.p.map(function(p,k){return '<button class="cell L'+(s.d[k]?' ok':s.sel===k?' sel':'')+'" style="width:100%;margin-bottom:10px" '+(s.d[k]?'disabled ':'')+'onclick="mC(\'L\','+k+')">'+p[0]+'</button>'}).join('')+'</div><div>'+s.sh.map(function(k){return '<button class="cell'+(s.d[k]?' ok':s.bad===k?' bad shake':'')+'" style="width:100%;margin-bottom:10px" '+(s.d[k]?'disabled ':'')+'onclick="mC(\'R\','+k+')">'+e.p[k][1]+'</button>'}).join('')+'</div></div>'}
+if(e.t=='mc'){h+=e.o.map(function(o,k){var c=s.pick&&s.pick[k]?(k==e.a?' ok':' bad'):'';return '<button class="opt'+c+'" onclick="mc('+k+')">'+o+'</button>'}).join('')}
+if(e.t=='cloze'){s.v=s.v||{};h+='<div class="cloze">'+e.x.map(function(x,k){if(typeof x=='string')return x;if(!s.sh)s.sh={};if(!s.sh[k])s.sh[k]=sh(x.length);return '<select id="s'+k+'" onchange="S['+cur+'].v['+k+']=this.value;S['+cur+'].m=\'\';this.className=\'\'"><option value="">Velg…</option>'+s.sh[k].map(function(j){return '<option value="'+j+'"'+(s.v[k]==j&&s.v[k]!==''?' selected':'')+'>'+x[j]+'</option>'}).join('')+'</select>'}).join('')+'</div>'}
+if(e.t=='tf'){s.a=s.a||{};h+=e.r.map(function(r,k){var a=s.a[k],cls=function(v){return a===undefined||a!==v?'':(r[1]==v?' ok':' bad')};return '<div class="tf"><div>'+r[0]+'</div><div class="b"><button class="tfb'+cls(1)+'" onclick="tf('+k+',1)">Sant</button><button class="tfb'+cls(0)+'" onclick="tf('+k+',0)">Usant</button></div></div>'}).join('')}
+if(e.t=='sort'){if(!s.p){s.p={};s.ord=sh(e.c.length)}
+h+='<div class="pool">'+s.ord.filter(function(k){return s.p[k]===undefined}).map(function(k){return chip(e,s,k)}).join('')+'</div>'+e.z.map(function(z,zi){return '<button class="zone'+(s.sel!=null?' hot':'')+'" onclick="zn('+zi+')"><b>'+z+'</b><span class="in">'+s.ord.filter(function(k){return s.p[k]===zi}).map(function(k){return chip(e,s,k)}).join('')+'</span></button>'}).join('')}
+var ex=e.t=='cloze'?'<button class="go alt" onclick="chkC()">Sjekk svar</button> ':e.t=='sort'?'<button class="go alt" onclick="chkS()">Sjekk svar</button> ':'';
+$('stage').innerHTML=h+foot(cur,ex)}
+function chip(e,s,k){return '<span role="button" tabindex="0" class="chip'+(s.sel===k?' sel':'')+(s.res&&s.res[k]!==undefined?(s.res[k]?' ok':' bad'):'')+'" onclick="event.stopPropagation();ch('+k+')" onkeydown="if(event.key==\'Enter\')this.click()">'+e.c[k][0]+'</span>'}
+function mC(side,k){var e=E[cur],s=S[cur];if(side=='L'){s.sel=k;s.bad=null;render();return}
+if(s.sel==null){say(cur,'Velg først et uttrykk til venstre.','bad');return}
+if(s.sel===k){s.d[k]=1;s.sel=null;s.bad=null;var all=Object.keys(s.d).length==e.p.length;s.m=all?'Riktig! Alt hører sammen.':'Riktig!';s.mc='ok';if(all)done(cur);render()}
+else{s.bad=k;s.m='Ikke helt. Prøv igjen.';s.mc='bad';render();s.bad=null}}
+function mc(k){var e=E[cur],s=S[cur];s.pick=s.pick||{};s.pick[k]=1;if(k==e.a){s.m='Riktig!';s.mc='ok';done(cur)}else{s.m='Prøv igjen.';s.mc='bad'}render()}
+function chkC(){var e=E[cur],s=S[cur],ok=true,n=0;e.x.forEach(function(x,k){if(typeof x=='string')return;var el=$('s'+k),v=el.value,good=v!==''&&+v===0;if(!good)ok=false;n+=good?1:0;el.className=good?'ok':'bad'});
+s.m=ok?'Riktig! Godt jobbet.':n+' av '+e.x.filter(function(x){return typeof x!='string'}).length+' riktige. Rett opp de røde.';s.mc=ok?'ok':'bad';say(cur,s.m,s.mc);if(ok)done(cur)}
+function tf(k,v){var e=E[cur],s=S[cur];s.a[k]=v;var all=e.r.every(function(r,i){return s.a[i]!==undefined&&s.a[i]==r[1]});if(all){s.m='Alle riktige!';s.mc='ok';done(cur)}else if(e.r[k][1]!=v){s.m='Det stemmer ikke. Prøv den andre knappen.';s.mc='bad'}else{s.m='';s.mc=''}render()}
+function ch(k){var s=S[cur];s.res=null;if(s.p[k]!==undefined){delete s.p[k];s.sel=null}else s.sel=(s.sel===k?null:k);render()}
+function zn(zi){var s=S[cur];if(s.sel==null){say(cur,'Velg først en tekst.','bad');return}s.p[s.sel]=zi;s.sel=null;s.res=null;s.m='';render()}
+function chkS(){var e=E[cur],s=S[cur];if(Object.keys(s.p).length<e.c.length){say(cur,'Plasser alle tekstene først.','bad');return}
+s.res={};var ok=true;e.c.forEach(function(c,k){s.res[k]=s.p[k]===c[1];if(!s.res[k])ok=false});s.m=ok?'Riktig! CV-en er satt opp riktig.':'Noen er på feil plass. Trykk på en rød tekst for å flytte den.';s.mc=ok?'ok':'bad';if(ok)done(cur);render()}
+var _r=render;render=function(){if(cur>=E.length){top_();var n=R.filter(Boolean).length;$('stage').innerHTML='<h2>Ferdig!</h2><p class="q">Du har klart</p><div class="score">'+n+' / '+E.length+'</div><p>'+(n==E.length?'Alle oppgavene er riktige. Flott!':'Gå tilbake til oppgavene som ikke er grønne, og prøv igjen.')+'</p><div class="foot"><span></span><div><button class="go alt" onclick="go(E.length-1)">Tilbake</button> <button class="go" onclick="location.reload()">Start på nytt</button></div></div>';return}_r()};
+render();
+</script>
+</body>
+</html>
